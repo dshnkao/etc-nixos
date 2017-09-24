@@ -81,6 +81,10 @@
       enable = true;
       syntaxHighlighting.enable = true;
     };
+    gnupg = {
+      agent.enable = true;
+      agent.enableExtraSocket = true;
+    };
     ssh.startAgent = true;
     java.enable = true;
   };
