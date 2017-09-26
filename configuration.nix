@@ -76,6 +76,13 @@
     };
   };
 
+  virtualisation = {
+    docker = {
+      enable = true;
+      enableOnBoot = false;
+    };
+  };
+
   programs = {
     zsh = { 
       enable = true;
