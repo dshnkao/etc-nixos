@@ -11,19 +11,20 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
       acpi
-      aspell
       ag
       arandr
+      aspell
       autocutsel
       binutils
       blueman
       chromium
       conky
       curl
+      docker
       dzen2
       emacs
-      emacsPackagesNg.melpaPackages.pdf-tools
       emacsPackagesNg.melpaPackages.ac-ispell
+      emacsPackagesNg.melpaPackages.pdf-tools
       evince
       firefox
       fzf
@@ -39,6 +40,7 @@
       ktorrent
       lsof
       lxappearance
+      maven
       ncurses6
       neofetch
       neovim
