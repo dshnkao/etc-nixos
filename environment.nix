@@ -29,7 +29,9 @@
     emacsPackagesNg.melpaPackages.ac-ispell
     emacsPackagesNg.melpaPackages.pdf-tools
     evince
-    firefox
+    fd
+    file
+    firefox-devedition-bin-unwrapped
     fzf
     gcc
     git
@@ -44,15 +46,18 @@
     ktorrent
     lsof
     lxappearance
+    m4
     maven
     ncurses6
     neofetch
     neovim
     nmap
+    ocaml
     opam
     openjdk8
     pandoc
     pass
+    patchelf
     pavucontrol 
     pinentry
     pkgconfig
@@ -92,6 +97,8 @@
     xorg.xev
     zathura
     zip
+    zlib
+    zlibStatic
   ];
 
 }

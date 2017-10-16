@@ -41,6 +41,8 @@
     # consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
+    inputMethod.enabled = "fcitx";
+    inputMethod.fcitx.engines = with pkgs.fcitx-engines; [ chewing ];
   };
 
   time.timeZone = "Australia/Sydney";
@@ -119,6 +121,6 @@
   };
 
   # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "17.03";
+  system.stateVersion = "17.09";
 
 }
