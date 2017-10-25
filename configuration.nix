@@ -99,8 +99,9 @@
   };
 
   security.wrappers = {
-     pmount.source = "${pkgs.pmount}/bin/pmount"; 
-     pumount.source = "${pkgs.pmount}/bin/pumount";
+    pmount.source = "${pkgs.pmount}/bin/pmount"; 
+    pumount.source = "${pkgs.pmount}/bin/pumount";
+    slock.source = "${pkgs.slock}/bin/slock";
   };
 
   nix.gc = {

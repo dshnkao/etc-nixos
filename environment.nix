@@ -2,7 +2,7 @@
 
 {
   environment.variables = {
-    QT_PLUGIN_PATH = [ "${pkgs.plasma-desktop}/lib/qt-5.9/plugins/kcms" ];
+    #QT_PLUGIN_PATH = [ "${pkgs.plasma-desktop}/lib/qt-5.9/plugins/kcms" ];
     QT_QPA_PLATFORMTHEME = "qt5ct";
     GTK_THEME = "Adwaita:light";
   };
@@ -37,6 +37,7 @@
     git
     gnumake
     gnupg
+    gstreamer
     haskellPackages.cabal-install
     haskellPackages.ghc
     haskellPackages.stack
@@ -75,11 +76,13 @@
     sbt
     scala
     scrot
+    slock
     smartmontools
     spotify
     sqlite
     steam
     stow
+    stress
     taffybar
     texlive.combined.scheme-full
     tmux

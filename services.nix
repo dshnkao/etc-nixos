@@ -21,7 +21,7 @@
       layout = "us";
       xkbOptions = "ctrl:nocaps, altwin:swap_alt_win";
       libinput.enable = true;
-      displayManager.sddm.enable = true;
+      displayManager.lightdm.enable = true;
       desktopManager.plasma5.enable = true;
       windowManager.xmonad = {
         enable = true;
