@@ -20,6 +20,7 @@
     automake
     binutils
     blueman
+    cabal2nix
     chromium
     clang
     conky
@@ -40,11 +41,14 @@
     gstreamer
     haskellPackages.cabal-install
     haskellPackages.ghc
+    haskellPackages.purescript
     haskellPackages.stack
     htop
     imagemagick
     jetbrains.idea-community
+    jq
     ktorrent
+    libreoffice
     lsof
     lxappearance
     m4
@@ -52,6 +56,7 @@
     ncurses6
     neofetch
     neovim
+    nix-prefetch-git
     nmap
     ocaml
     opam
@@ -64,6 +69,7 @@
     pkgconfig
     pmount
     powertop
+    psc-package
     psmisc
     python
     python36
@@ -95,9 +101,11 @@
     wget
     which
     xclip
+    xdotool
     xorg.xbacklight
     xorg.xcursorthemes
     xorg.xev
+    xsel
     zathura
     zip
     zlib

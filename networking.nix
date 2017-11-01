@@ -3,7 +3,15 @@
 {
   networking.hostName = "carbon";
   networking.networkmanager.enable = true;
-  networking.firewall.enable = true;
+  networking.firewall = {
+    enable = true;
+    logRefusedConnections = true;
+    allowedTCPPorts = [ 22 ];
+    allowedUDPPorts = [ ];
+    allowPing = false;
+    connectionTrackingModules = [];
+    autoLoadConntrackHelpers = false;
+  };
   networking.extraHosts = ''
     127.0.0.1 adclick.g.doublecklick.net
     127.0.0.1 adeventtracker.spotify.com
