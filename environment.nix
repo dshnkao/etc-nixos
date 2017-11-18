@@ -30,6 +30,7 @@
     emacsPackagesNg.melpaPackages.ac-ispell
     emacsPackagesNg.melpaPackages.pdf-tools
     evince
+    exa
     fd
     file
     firefox-devedition-bin-unwrapped
@@ -43,6 +44,7 @@
     haskellPackages.ghc
     haskellPackages.purescript
     haskellPackages.stack
+    haskellPackages.styx
     htop
     imagemagick
     jetbrains.idea-community
@@ -57,19 +59,17 @@
     neofetch
     neovim
     nix-prefetch-git
+    nix-repl
     nmap
-    ocaml
-    opam
+    nodePackages.tern
     openjdk8
     pandoc
     pass
     patchelf
     pavucontrol 
     pinentry
-    pkgconfig
     pmount
     powertop
-    psc-package
     psmisc
     python
     python36
@@ -105,11 +105,10 @@
     xorg.xbacklight
     xorg.xcursorthemes
     xorg.xev
+    xournal
     xsel
     zathura
     zip
-    zlib
-    zlibStatic
   ];
 
 }

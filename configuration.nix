@@ -38,11 +38,8 @@
 
   # Select internationalisation properties.
   i18n = {
-    # consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
-    inputMethod.enabled = "fcitx";
-    inputMethod.fcitx.engines = with pkgs.fcitx-engines; [ chewing ];
   };
 
   time.timeZone = "Australia/Sydney";
@@ -79,6 +76,7 @@
   };
 
   virtualisation = {
+    virtualbox.host.enable = true;
     docker = {
       enable = true;
       enableOnBoot = false;
