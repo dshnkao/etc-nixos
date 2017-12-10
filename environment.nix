@@ -32,6 +32,7 @@
     evince
     exa
     fd
+    ffmpeg
     file
     firefox-devedition-bin-unwrapped
     fzf
@@ -42,8 +43,8 @@
     gstreamer
     haskellPackages.cabal-install
     haskellPackages.ghc
-    haskellPackages.purescript
-    haskellPackages.stack
+    haskellPackages.hlint
+    haskellPackages.hindent
     haskellPackages.styx
     htop
     imagemagick
@@ -82,6 +83,7 @@
     sbt
     scala
     scrot
+    shellcheck
     slock
     smartmontools
     spotify
