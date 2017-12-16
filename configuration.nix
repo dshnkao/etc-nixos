@@ -34,7 +34,7 @@
       preLVM = true;
     }
   ];
-  boot.kernelPackages = pkgs.linuxPackages_4_13;
+  boot.kernelPackages = pkgs.linuxPackages_4_14;
 
   # Select internationalisation properties.
   i18n = {

@@ -4,7 +4,12 @@
   services = {
     printing.enable = true;
     printing.drivers = [ pkgs.splix ];
-    tlp.enable = true;
+    tlp = {
+      enable = false;
+      extraConfig = ''
+        USB_BLACKLIST_BTUSB=1
+      '';
+    }
     emacs = {
       enable = true;
       install = true;
