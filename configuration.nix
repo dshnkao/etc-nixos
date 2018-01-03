@@ -18,6 +18,7 @@
     };
     pulseaudio = {
       enable = true;
+      support32Bit = true;
       package = pkgs.pulseaudioFull;
     };
     bluetooth.enable = true;
@@ -35,6 +36,7 @@
     }
   ];
   boot.kernelPackages = pkgs.linuxPackages_4_14;
+  boot.kernelModules = [ "uinput" ];
 
   # Select internationalisation properties.
   i18n = {
@@ -107,6 +109,9 @@
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
+
+  nix.binaryCaches = [ https://cache.nixos.org https://hydra.iohk.io ];
+  nix.binaryCachePublicKeys = [ "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.dennis = {

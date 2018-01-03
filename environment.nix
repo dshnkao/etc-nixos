@@ -31,6 +31,7 @@
     emacsPackagesNg.melpaPackages.pdf-tools
     evince
     exa
+    feh
     fd
     ffmpeg
     file
@@ -86,9 +87,7 @@
     shellcheck
     slock
     smartmontools
-    spotify
     sqlite
-    steam
     stow
     stress
     taffybar
@@ -111,6 +110,7 @@
     xsel
     zathura
     zip
+    zlib
   ];
 
 }
