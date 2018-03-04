@@ -16,11 +16,15 @@
     chromium
     curl
     feh
-    firefox
+    firefox-bin
+    gcc
     gnupg
     lsof
     lxappearance
-    neovim
+    nix-index
+    nix-prefetch-git
+    nix-prefetch-scripts
+    nix-repl
     pavucontrol 
     pinentry
     powertop

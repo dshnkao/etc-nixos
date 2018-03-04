@@ -35,7 +35,7 @@
       preLVM = true;
     }
   ];
-  boot.kernelPackages = pkgs.linuxPackages_4_14;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "uinput" ];
 
   # Select internationalisation properties.
@@ -110,7 +110,7 @@
     options = "--delete-older-than 30d";
   };
 
-  nix.binaryCaches = [ https://cache.nixos.org https://hydra.iohk.io ];
+  nix.binaryCaches = [ "https://cache.nixos.org" "https://hydra.iohk.io" ];
   nix.binaryCachePublicKeys = [ "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
