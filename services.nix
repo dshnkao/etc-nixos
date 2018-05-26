@@ -34,10 +34,10 @@
       windowManager.xmonad = {
         enable = true;
         enableContribAndExtras = true;
-        extraPackages = haskellPackages: [
-          haskellPackages.gtk2hs-buildtools
-          haskellPackages.taffybar
-        ];
+        # extraPackages = haskellPackages: [
+        #   haskellPackages.gtk2hs-buildtools
+        #   haskellPackages.taffybar
+        # ];
       };
       # synaptics = {
       #   enable = true;

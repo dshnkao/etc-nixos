@@ -4,6 +4,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
+      ./multi-glibc-locale-paths.nix
       ./environment.nix
       ./services.nix
       ./networking.nix
@@ -20,8 +21,21 @@
       enable = true;
       support32Bit = true;
       package = pkgs.pulseaudioFull;
+      #configFile = pkgs.writeText "default.pa" ''
+      #  load-module module-bluetooth-policy
+      #  load-module module-bluetooth-discover
+      #  ## module fails to load with 
+      #  ##   module-bluez5-device.c: Failed to get device path from module arguments
+      #  ##   module.c: Failed to load module "module-bluez5-device" (argument: ""): initialization failed.
+      #  # load-module module-bluez5-device
+      #  # load-module module-bluez5-discover
+      #'';
     };
     bluetooth.enable = true;
+    bluetooth.extraConfig = ''
+      [General]
+      Enable=Source,Sink,Media,Socket
+    '';
   };
 
   # Use the systemd-boot EFI boot loader.
@@ -107,11 +121,18 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 100d";
   };
 
-  nix.binaryCaches = [ "https://cache.nixos.org" "https://hydra.iohk.io" ];
-  nix.binaryCachePublicKeys = [ "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=" ];
+  nix.binaryCaches = [ 
+    "https://cache.nixos.org" 
+  ];
+  nix.trustedBinaryCaches = [
+    "https://cache.nixos.org" 
+  ];
+  nix.binaryCachePublicKeys = [ 
+    "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.dennis = {
@@ -120,11 +141,11 @@
     home = "/home/dennis";
     group = "users";
     description = "Dennis Kao";
-    extraGroups = [ "wheel" "networkmanager"];
+    extraGroups = [ "wheel" "networkmanager" "vboxusers" ];
     shell = pkgs.zsh;
   };
 
   # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "17.09";
+  system.nixos.stateVersion = "18.03";
 
 }
