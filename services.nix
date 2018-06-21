@@ -21,11 +21,31 @@
       temperature.day = 5000;
       temperature.night = 3000;
     };
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql94;
+      port = 5432;
+      authentication = pkgs.lib.mkOverride 10 ''
+        local all all trust
+        host all all 127.0.0.1/32 trust
+        host all all ::1/128 trust
+      '';
+    };
     xserver = {
       enable = true;
       layout = "us";
       xkbOptions = "ctrl:nocaps, altwin:swap_alt_win";
+      # multitouch.enable = true;
       libinput.enable = true;
+      # synaptics = {
+      #   enable = true;
+      #   twoFingerScroll = true;
+      #   vertEdgeScroll = true;
+      #   palmDetect = true;
+      #   accelFactor = "0.5";
+      #   minSpeed = "0.8";
+      #   maxSpeed = "1.5";
+      # };
       displayManager.lightdm = {
         enable = true;
         background = "/usr/share/lightdm.jpg";
@@ -39,12 +59,6 @@
         #   haskellPackages.taffybar
         # ];
       };
-      # synaptics = {
-      #   enable = true;
-      #   twoFingerScroll = true;
-      #   vertEdgeScroll = true;
-      #   palmDetect = true;
-      # };
     };
 
     udev.extraRules = ''

@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ 
+    [
       ./hardware-configuration.nix
       ./multi-glibc-locale-paths.nix
       ./environment.nix
@@ -12,8 +12,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  hardware = { 
+  hardware = {
     opengl = {
+      enable = true;
       driSupport = true;
       driSupport32Bit = true;
     };
@@ -21,15 +22,6 @@
       enable = true;
       support32Bit = true;
       package = pkgs.pulseaudioFull;
-      #configFile = pkgs.writeText "default.pa" ''
-      #  load-module module-bluetooth-policy
-      #  load-module module-bluetooth-discover
-      #  ## module fails to load with 
-      #  ##   module-bluez5-device.c: Failed to get device path from module arguments
-      #  ##   module.c: Failed to load module "module-bluez5-device" (argument: ""): initialization failed.
-      #  # load-module module-bluez5-device
-      #  # load-module module-bluez5-discover
-      #'';
     };
     bluetooth.enable = true;
     bluetooth.extraConfig = ''
@@ -65,12 +57,13 @@
     enableFontDir = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
-      dejavu_fonts 
+      dejavu_fonts
       emacs-all-the-icons-fonts
       fira-code
       fira-code-symbols
       font-awesome-ttf
       inconsolata
+      noto-fonts
       powerline-fonts
       source-code-pro
       source-han-sans-traditional-chinese
@@ -100,7 +93,7 @@
   };
 
   programs = {
-    zsh = { 
+    zsh = {
       enable = true;
       syntaxHighlighting.enable = true;
     };
@@ -108,14 +101,21 @@
       agent.enable = true;
       agent.enableExtraSocket = true;
     };
-    ssh.startAgent = true;
+    ssh = {
+      forwardX11 = false;
+      startAgent = true;
+      agentTimeout = "3h";
+    };
     java.enable = true;
   };
 
-  security.wrappers = {
-    pmount.source = "${pkgs.pmount}/bin/pmount"; 
-    pumount.source = "${pkgs.pmount}/bin/pumount";
-    slock.source = "${pkgs.slock}/bin/slock";
+  security = {
+    wrappers = {
+      pmount.source = "${pkgs.pmount}/bin/pmount";
+      pumount.source = "${pkgs.pmount}/bin/pumount";
+      slock.source = "${pkgs.slock}/bin/slock";
+    };
+    apparmor.enable = true;
   };
 
   nix.gc = {
@@ -124,13 +124,13 @@
     options = "--delete-older-than 100d";
   };
 
-  nix.binaryCaches = [ 
-    "https://cache.nixos.org" 
+  nix.binaryCaches = [
+    "https://cache.nixos.org"
   ];
   nix.trustedBinaryCaches = [
-    "https://cache.nixos.org" 
+    "https://cache.nixos.org"
   ];
-  nix.binaryCachePublicKeys = [ 
+  nix.binaryCachePublicKeys = [
     "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
   ];
 
@@ -141,7 +141,7 @@
     home = "/home/dennis";
     group = "users";
     description = "Dennis Kao";
-    extraGroups = [ "wheel" "networkmanager" "vboxusers" ];
+    extraGroups = [ "wheel" "networkmanager" "vboxusers" "docker" ];
     shell = pkgs.zsh;
   };
 
