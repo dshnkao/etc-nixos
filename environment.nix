@@ -2,10 +2,8 @@
 
 {
   environment.variables = {
-    #QT_PLUGIN_PATH = [ "${pkgs.plasma-desktop}/lib/qt-5.9/plugins/kcms" ];
     QT_QPA_PLATFORMTHEME = "qt5ct";
     QT_AUTO_SCREEN_SCALE_FACTOR = "0 zeal";
-    GTK_THEME = "Adwaita:light";
   };
 
   environment.systemPackages = with pkgs; [
@@ -23,6 +21,7 @@
     firefox-bin
     gcc
     gnupg
+    konsole
     lsof
     lxappearance
     pavucontrol 
@@ -33,6 +32,7 @@
     rofi
     rxvt_unicode
     slock
+    taffybar
     tmux
     vim
     wget

@@ -104,7 +104,7 @@
     ssh = {
       forwardX11 = false;
       startAgent = true;
-      agentTimeout = "3h";
+      agentTimeout = "5h";
     };
     java.enable = true;
   };
