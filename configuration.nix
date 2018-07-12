@@ -3,11 +3,12 @@
 {
   imports =
     [
+      ./environment.nix
       ./hardware-configuration.nix
       ./multi-glibc-locale-paths.nix
-      ./environment.nix
-      ./services.nix
       ./networking.nix
+      ./services.nix
+      ./systemd.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -48,6 +49,10 @@
   i18n = {
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
+    inputMethod = {
+      enabled = "fcitx";
+      fcitx.engines = with pkgs.fcitx-engines; [ chewing ];
+    };
   };
 
   time.timeZone = "Australia/Sydney";
@@ -108,6 +113,7 @@
     };
     java.enable = true;
   };
+
 
   security = {
     wrappers = {

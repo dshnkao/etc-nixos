@@ -13,6 +13,7 @@
     autoLoadConntrackHelpers = false;
   };
   networking.extraHosts = ''
+    127.0.0.1 carbon
     127.0.0.1 adclick.g.doublecklick.net
     127.0.0.1 adeventtracker.spotify.com
     127.0.0.1 ads-fa.spotify.com
