@@ -24,14 +24,13 @@
     konsole
     lsof
     lxappearance
-    pavucontrol 
+    pavucontrol
     pinentry
     powertop
     psmisc
     qt5ct
     rofi
     rxvt_unicode
-    slock
     taffybar
     tmux
     vim
@@ -45,4 +44,25 @@
     xsel
   ];
 
+  programs = {
+    zsh = {
+      enable = true;
+      syntaxHighlighting.enable = true;
+    };
+    gnupg = {
+      agent.enable = true;
+      agent.enableExtraSocket = true;
+    };
+    ssh = {
+      forwardX11 = false;
+      startAgent = true;
+      agentTimeout = "24h";
+    };
+    java = {
+      enable = true;
+      package = pkgs.openjdk8;
+    };
+    # slock with setuid wrapper
+    slock.enable = true;
+  };
 }

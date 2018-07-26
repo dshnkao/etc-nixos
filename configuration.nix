@@ -97,29 +97,10 @@
     };
   };
 
-  programs = {
-    zsh = {
-      enable = true;
-      syntaxHighlighting.enable = true;
-    };
-    gnupg = {
-      agent.enable = true;
-      agent.enableExtraSocket = true;
-    };
-    ssh = {
-      forwardX11 = false;
-      startAgent = true;
-      agentTimeout = "5h";
-    };
-    java.enable = true;
-  };
-
-
   security = {
     wrappers = {
       pmount.source = "${pkgs.pmount}/bin/pmount";
       pumount.source = "${pkgs.pmount}/bin/pumount";
-      slock.source = "${pkgs.slock}/bin/slock";
     };
     apparmor.enable = true;
   };
@@ -153,5 +134,4 @@
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.nixos.stateVersion = "18.03";
-
 }
