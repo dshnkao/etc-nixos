@@ -6,7 +6,7 @@
   networking.firewall = {
     enable = true;
     logRefusedConnections = true;
-    allowedTCPPorts = [ ];
+    allowedTCPPorts = [ 443 ];
     allowedUDPPorts = [ ];
     allowPing = false;
     connectionTrackingModules = [];

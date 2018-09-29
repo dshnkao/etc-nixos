@@ -4,6 +4,24 @@
   services = {
     printing.enable = true;
     printing.drivers = [ pkgs.splix ];
+    netdata.enable = true;
+    nscd.enable = false;
+    nginx = {
+      enable = true;
+      recommendedProxySettings = true;
+      virtualHosts."localhost" = {
+        forceSSL = true;
+        root = "/srv/www";
+        sslCertificateKey = "/srv/key.pem";
+        sslCertificate = "/srv/cert.pem";
+        basicAuthFile = "/srv/.htpasswd";
+        locations."/" = {
+          extraConfig = ''
+            autoindex on;
+          '';
+        };
+      };
+    };
     tlp = {
       enable = true;
       extraConfig = ''

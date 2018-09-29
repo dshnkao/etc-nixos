@@ -92,6 +92,8 @@
   };
 
   virtualisation = {
+    lxc.enable = true;
+    lxd.enable = true;
     virtualbox.host.enable = true;
     docker = {
       enable = true;
@@ -130,10 +132,10 @@
     home = "/home/dennis";
     group = "users";
     description = "Dennis Kao";
-    extraGroups = [ "wheel" "networkmanager" "vboxusers" "docker" ];
+    extraGroups = [ "wheel" "networkmanager" "vboxusers" "docker" "lxd" ];
     shell = pkgs.zsh;
   };
 
   # The NixOS release to be compatible with for stateful data such as databases.
-  system.nixos.stateVersion = "18.03";
+  system.stateVersion = "18.03";
 }

@@ -10,6 +10,9 @@
         };
         wantedBy = [ "multi-user.target" ];
       };
+      postgresql.enable = false;
+      nginx.enable = false;
+      netdata.enable = false;
     };
   };
 }
