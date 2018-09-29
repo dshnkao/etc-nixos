@@ -50,8 +50,8 @@
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
-      enabled = "fcitx";
-      fcitx.engines = with pkgs.fcitx-engines; [ chewing ];
+      #enabled = "fcitx";
+      #fcitx.engines = with pkgs.fcitx-engines; [ chewing ];
     };
   };
 
@@ -66,19 +66,21 @@
       emacs-all-the-icons-fonts
       fira-code
       fira-code-symbols
-      font-awesome-ttf
+      font-awesome_5
       inconsolata
       noto-fonts
       powerline-fonts
+      siji
       source-code-pro
-      source-han-sans-traditional-chinese
-      source-han-sans-simplified-chinese
       source-han-sans-japanese
       source-han-sans-korean
-      source-han-serif-traditional-chinese
-      source-han-serif-simplified-chinese
+      source-han-sans-simplified-chinese
+      source-han-sans-traditional-chinese
       source-han-serif-japanese
       source-han-serif-korean
+      source-han-serif-simplified-chinese
+      source-han-serif-traditional-chinese
+      unifont
     ];
     fontconfig = {
       defaultFonts = {
@@ -102,7 +104,7 @@
       pmount.source = "${pkgs.pmount}/bin/pmount";
       pumount.source = "${pkgs.pmount}/bin/pumount";
     };
-    apparmor.enable = true;
+    # apparmor.enable = true;
   };
 
   nix.gc = {
