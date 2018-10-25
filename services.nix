@@ -41,8 +41,11 @@
     };
     postgresql = {
       enable = true;
-      package = pkgs.postgresql94;
+      package = pkgs.postgresql96;
       port = 5432;
+      extraPlugins = [
+        (pkgs.postgis.override { postgresql = pkgs.postgresql96; })
+      ];
       authentication = pkgs.lib.mkOverride 10 ''
         local all all trust
         host all all 127.0.0.1/32 trust

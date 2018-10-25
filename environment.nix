@@ -42,6 +42,7 @@
     xorg.xcursorthemes
     xorg.xev
     xsel
+    #networkmanagerapplet
   ];
 
   programs = {
