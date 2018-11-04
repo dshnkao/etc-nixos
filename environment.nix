@@ -13,12 +13,11 @@
     arandr
     autojump
     blueman
-    chromium
     conky
     curl
     dzen2
     feh
-    firefox-bin
+    firejail
     gcc
     gnupg
     konsole
@@ -42,7 +41,6 @@
     xorg.xcursorthemes
     xorg.xev
     xsel
-    #networkmanagerapplet
   ];
 
   programs = {
@@ -65,5 +63,13 @@
     };
     # slock with setuid wrapper
     slock.enable = true;
+    firejail = {
+      enable = true;
+      wrappedBinaries = with pkgs; {
+        chromium = "${chromium}/bin/chromium";
+        firefox = "${firefox-bin}/bin/firefox";
+        feh = "${feh}/bin/feh";
+      };
+    };
   };
 }
