@@ -29,6 +29,7 @@
       '';
     };
     emacs = {
+      package = pkgs.myemacs;
       enable = true;
       install = true;
     };

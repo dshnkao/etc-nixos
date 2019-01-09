@@ -7,7 +7,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    (emacsWithPackages (p: with p.melpaStablePackages; [pdf-tools]))
     acpi
     alsaUtils
     arandr
@@ -16,13 +15,15 @@
     conky
     curl
     dzen2
+    emacs
     feh
     firejail
     gcc
     gnupg
     konsole
-    linuxPackages.perf
-    linuxPackages.bcc
+    linuxPackages_latest.bcc
+    linuxPackages_latest.bpftrace
+    linuxPackages_latest.perf
     lsof
     lxappearance
     pavucontrol
@@ -32,7 +33,6 @@
     qt5ct
     rofi
     rxvt_unicode
-    #taffybar
     tmux
     vim
     wget
