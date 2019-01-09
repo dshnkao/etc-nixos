@@ -76,8 +76,8 @@
         enable = true;
         enableContribAndExtras = true;
         extraPackages = haskellPackages: [
-          haskellPackages.gtk2hs-buildtools
-          haskellPackages.taffybar
+          #haskellPackages.gtk2hs-buildtools
+          #haskellPackages.taffybar
         ];
       };
     };

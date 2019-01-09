@@ -21,6 +21,8 @@
     gcc
     gnupg
     konsole
+    linuxPackages.perf
+    linuxPackages.bcc
     lsof
     lxappearance
     pavucontrol
@@ -30,7 +32,7 @@
     qt5ct
     rofi
     rxvt_unicode
-    taffybar
+    #taffybar
     tmux
     vim
     wget

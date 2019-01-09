@@ -12,6 +12,23 @@
     connectionTrackingModules = [];
     autoLoadConntrackHelpers = false;
   };
+  networking.nat.enable = true;
+  networking.nat.externalInterface = "wlp4s0";
+  networking.nat.internalInterfaces = [ "wg0" ];
+  #networking.wireguard.interfaces = {
+  #  wg0 = {
+  #    ips = [ "10.100.0.1/24" ];
+  #    listenPort = 51820;
+  #    privateKeyFile = "/home/dennis/keys/wireguard/carbon/private";
+  #    peers = [
+  #      {
+  #        # vaio
+  #        publicKey = "ZqtzeElM3EG88cYtM/smM+GnREVjCga2/spJhNDEeTw=";
+  #        allowedIPs = [ "0.0.0.0/0" ];
+  #      }
+  #    ];
+  #  };
+  #};
   networking.extraHosts = ''
     127.0.0.1 carbon
     127.0.0.1 adclick.g.doublecklick.net
