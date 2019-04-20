@@ -17,6 +17,7 @@
     dzen2
     emacs
     feh
+    firefox
     firejail
     gcc
     gnupg
@@ -69,7 +70,7 @@
       enable = true;
       wrappedBinaries = with pkgs; {
         chromium = "${chromium}/bin/chromium";
-        firefox = "${firefox-bin}/bin/firefox";
+        # firefox = "${firefox-bin}/bin/firefox";
         feh = "${feh}/bin/feh";
       };
     };

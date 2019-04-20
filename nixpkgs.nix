@@ -20,6 +20,6 @@
   # (emacsWithPackages (p: with p.melpaStablePackages; [pdf-tools]))
     myemacs = (pkgs.emacsPackagesNg.overrideScope' (self: super: {
       imagemagick = pkgs.imagemagick;
-    })).emacsWithPackages (epkgs: [ epkgs.pdf-tools ]);
+    })).emacsWithPackages (epkgs: [ ]); #epkgs.pdf-tools ]);
   };
 }
