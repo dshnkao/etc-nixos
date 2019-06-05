@@ -4,7 +4,7 @@
   systemd = {
     services = {
       postgresql.enable = false;
-      nginx.enable = false;
+      nginx.enable = true;
       netdata.enable = true;
       init-script = {
         description = "run on boot";
@@ -17,7 +17,7 @@
     user.services.sync-book = {
         description = "sync ebooks";
         serviceConfig = {
-          ExecStart = "/bin/sh -c 'rsync -a /home/dennis/unrepos/ebooks/ denniskao.com:/home/dennis/unrepos/ebooks'";
+          ExecStart = "/bin/sh -c '/run/current-system/sw/bin/rsync -a /home/dennis/unrepos/ebooks/ denniskao.com:/home/dennis/unrepos/ebooks'";
         };
         wantedBy = [ "multi-user.target" ];
     };
