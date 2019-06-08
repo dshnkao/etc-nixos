@@ -3,9 +3,18 @@
 {
   systemd = {
     services = {
-      postgresql.enable = false;
-      nginx.enable = true;
-      netdata.enable = true;
+      postgresql = {
+        enable = true;
+        wantedBy = pkgs.lib.mkForce [];
+      };
+      nginx = {
+        enable = true;
+        wantedBy = pkgs.lib.mkForce [];
+      };
+      netdata = {
+        enable = true;
+        wantedBy = pkgs.lib.mkForce [];
+      };
       init-script = {
         description = "run on boot";
         serviceConfig = {
