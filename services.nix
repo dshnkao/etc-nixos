@@ -6,6 +6,8 @@
     printing.drivers = [ pkgs.splix ];
     netdata.enable = true;
     nscd.enable = false;
+    dbus.socketActivated = true;
+    dbus.enable = true;
     nginx = {
       enable = true;
       recommendedProxySettings = true;
@@ -35,8 +37,6 @@
     };
     redshift = {
       enable = true;
-      latitude = "-34";
-      longitude = "151";
       temperature.day = 5000;
       temperature.night = 3000;
     };

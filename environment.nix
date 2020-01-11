@@ -2,8 +2,8 @@
 
 {
   environment.variables = {
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-    QT_AUTO_SCREEN_SCALE_FACTOR = "0 zeal";
+    #QT_QPA_PLATFORMTHEME = "qt5ct";
+    #QT_AUTO_SCREEN_SCALE_FACTOR = "0 zeal";
   };
 
   environment.systemPackages = with pkgs; [
@@ -32,6 +32,7 @@
     powertop
     psmisc
     qt5ct
+    qt5.qtbase
     rofi
     rxvt_unicode
     tmux
@@ -62,7 +63,7 @@
     };
     java = {
       enable = true;
-      package = pkgs.openjdk8;
+      package = pkgs.openjdk11;
     };
     # slock with setuid wrapper
     slock.enable = true;

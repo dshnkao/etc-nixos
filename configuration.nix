@@ -24,35 +24,35 @@
       package = pkgs.pulseaudioFull;
     };
     bluetooth.enable = true;
-    bluetooth.extraConfig = ''
-      [General]
-      Enable=Source,Sink,Media,Socket
-    '';
+    #bluetooth.config = ''
+    #  [General]
+    #  Enable=Source,Sink,Media,Socket
+    #'';
   };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.device = "/dev/nvme0n1";
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
+  boot.initrd.luks.devices = {
+    root = {
       device = "/dev/nvme0n1p3";
       preLVM = true;
-    }
-  ];
+    };
+  };
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "uinput" ];
 
   # Select internationalisation properties.
   i18n = {
-    consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
       #enabled = "fcitx";
       #fcitx.engines = with pkgs.fcitx-engines; [ chewing ];
     };
   };
+  console.keyMap = "us";
+  location.provider = "geoclue2";
 
   time.timeZone = "Australia/Sydney";
 
